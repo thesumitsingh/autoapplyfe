@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+.invisible-table {
+  border-collapse: collapse;
+}
+
+.invisible-table td {
+  padding: 0;
+}
+
+.invisible-table .form-label {
+  display: block;
+}
+
+.center-container {
+  position: relative;
+  height: 100vh; /* Adjust height as needed */
+}
+
+.centered-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Styles for the centered content */
+}
+
+.video-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Adjust height as needed */
+}
+
