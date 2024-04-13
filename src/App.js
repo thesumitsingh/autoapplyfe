@@ -102,7 +102,7 @@ function App() {
   /* eslint-enable no-unused-vars */
   const handleSearch = () => {
     // Send search term to API
-    axios.post('http://143.47.124.243/search', { search_term: searchTerm }, {
+    axios.post('https://api.collegefam.com/search', { search_term: searchTerm }, {
       headers: {
         'Referrer-Policy': 'no-referrer-when-downgrade' // or any other policy
       }
@@ -119,7 +119,7 @@ function App() {
 
   const handleSearchMoreResults = () => {
     // Send search term to API
-    axios.post('http://143.47.124.243/search', { search_term: searchTerm })
+    axios.post('https://api.collegefam.com/search', { search_term: searchTerm })
       .then(response => {
         console.log('Additional search results:', response.data);
         setJobsData(prevJobsData => [...prevJobsData, ...response.data]);
