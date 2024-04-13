@@ -44,6 +44,7 @@ function App() {
     const { firstName, lastName, email, phoneNumber, resume, linkedinUrl } = formData;
     if (!firstName || !lastName || !email || !phoneNumber || !resume || !linkedinUrl) {
       alert('All fields are mandatory.');
+      setIsSubmitting(false);
       return;
     }
 
@@ -88,6 +89,9 @@ function App() {
     let timer;
     if (isSubmitting) {
       timer = setInterval(() => {
+        if(countdown==0){
+          return () => clearInterval(timer);
+        }
         setCountdown(prevCountdown => prevCountdown - 1);
       }, 1000);
     }
@@ -98,6 +102,7 @@ function App() {
   /* eslint-enable no-unused-vars */
   const handleSearch = () => {
     // Send search term to API
+    setIsSubmitting(false);
     axios.post('https://api.collegefam.com/search/', { search_term: searchTerm })
       .then(response => {
         console.log('Search results:', response.data);
