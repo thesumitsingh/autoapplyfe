@@ -39,29 +39,33 @@ function App() {
   const handleSubmit = (joburl) => (e) => {
     setIsSubmitting(true);
     e.preventDefault();
-    
+
     // Validate form fields
     const { firstName, lastName, email, phoneNumber, resume, linkedinUrl } = formData;
     if (!firstName || !lastName || !email || !phoneNumber || !resume || !linkedinUrl) {
       alert('All fields are mandatory.');
       return;
     }
-  
+
     // Construct the request body
     const requestBody = {
       url: joburl, // Pass the URL as the first field
       firstname: firstName,
       lastname: lastName,
       email: email,
-      gender:'male',
+      gender: 'male',
       linkedin: linkedinUrl,
       phone: phoneNumber,
       profile: '1', // Add your logic for profile field here
       pdf_data: resume // Assuming the resume is already base64 encoded
     };
-  
+
     // Send form data to API
-    axios.post('http://143.47.124.243/apply', requestBody)
+    axios.post('http://143.47.124.243/apply', requestBody, {
+      headers: {
+        'Referrer-Policy': 'no-referrer-when-downgrade' // or any other policy
+      }
+    })
       .then(response => {
         setIsSubmitting(false);
         console.log('Application submitted successfully:', response.data);
@@ -82,7 +86,7 @@ function App() {
         alert('Failed to submit application. Please try again later.');
       });
   };
-  
+
 
   useEffect(() => {
     let timer;
@@ -98,7 +102,11 @@ function App() {
   /* eslint-enable no-unused-vars */
   const handleSearch = () => {
     // Send search term to API
-    axios.post('http://143.47.124.243/search', { search_term: searchTerm })
+    axios.post('http://143.47.124.243/search', { search_term: searchTerm }, {
+      headers: {
+        'Referrer-Policy': 'no-referrer-when-downgrade' // or any other policy
+      }
+    })
       .then(response => {
         console.log('Search results:', response.data);
         setJobsData(response.data);
@@ -121,18 +129,18 @@ function App() {
         alert('Failed to fetch additional search results. Please try again later.');
       });
   };
-  
+
   useEffect(() => {
     handleSearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
+  }, []);
 
   return (
     <>
-      <Navbar/>
-      
+      <Navbar />
+
       <div className="container">
-        <Sumitvideo className="center-container centered-content"/>
+        <Sumitvideo className="center-container centered-content" />
         <h5>Step 1: Fill basic details</h5>
         <table className="invisible-table">
           <tbody>
