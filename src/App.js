@@ -80,7 +80,7 @@ function App() {
       .catch(error => {
         setIsSubmitting(false);
         console.error('Error submitting application:', error);
-        alert('Failed to submit application. Please try again later.');
+        alert(`Failed to submit application. Please try again later. Error = ${error}`);
       });
   };
 
