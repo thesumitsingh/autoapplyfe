@@ -72,15 +72,15 @@ function App() {
       .then(response => {
         setIsSubmitting(false);
         console.log('Application submitted successfully:', response.data);
-        // Clear form fields after submission
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phoneNumber: '',
-          resume: null,
-          linkedinUrl: ''
-        });
+        // // Clear form fields after submission
+        // setFormData({
+        //   firstName: '',
+        //   lastName: '',
+        //   email: '',
+        //   phoneNumber: '',
+        //   resume: null,
+        //   linkedinUrl: ''
+        // });
         alert('Application submitted successfully!');
       })
       .catch(error => {
