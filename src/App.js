@@ -63,7 +63,7 @@ function App() {
 
     // Send form data to API
     console.log(requestBody)
-    axios.post('https://api.collegefam.com/apply', requestBody, {
+    axios.post('https://api.collegefam.com/apply/', requestBody, {
       headers: {
         'Content-Type': 'application/json', // Specify the content type of the request body
         // Add any additional headers here as needed
