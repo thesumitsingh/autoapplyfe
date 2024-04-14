@@ -143,7 +143,7 @@ function App() {
       <Navbar />
 
       <div className="container">
-        {/* <Sumitvideo className="center-container centered-content" /> */}
+        <Sumitvideo className="center-container centered-content" />
         <h5>Step 1: Fill basic details</h5>
         <table className="invisible-table">
           <tbody>
