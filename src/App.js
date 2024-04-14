@@ -63,7 +63,7 @@ function App() {
 
     // Send form data to API
     console.log(requestBody)
-    axios.post('https://api.collegefam.com/apply/', requestBody, {
+    axios.post('https://api.collegefam.com/apply', requestBody, {
       headers: {
         'Content-Type': 'application/json', // Specify the content type of the request body
         // Add any additional headers here as needed
@@ -109,7 +109,7 @@ function App() {
   const handleSearch = () => {
     // Send search term to API
     setIsSubmitting(false);
-    axios.post('https://api.collegefam.com/search/', { search_term: searchTerm })
+    axios.post('https://api.collegefam.com/search', { search_term: searchTerm })
       .then(response => {
         console.log('Search results:', response.data);
         setJobsData(response.data);
@@ -122,7 +122,7 @@ function App() {
 
   const handleSearchMoreResults = () => {
     // Send search term to API
-    axios.post('https://api.collegefam.com/search/', { search_term: searchTerm })
+    axios.post('https://api.collegefam.com/search', { search_term: searchTerm })
       .then(response => {
         console.log('Additional search results:', response.data);
         setJobsData(prevJobsData => [...prevJobsData, ...response.data]);
